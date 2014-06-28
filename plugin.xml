@@ -1,0 +1,12 @@
+<plugin>
+	<nom>À la carte</nom>
+	<version>1.0.0</version>
+	<etat>stable</etat>
+	<auteur>kent1</auteur>
+	<licence>GPL</licence>
+	<prefix>theme_alacarte</prefix>
+	<description></description>
+	<icon></icon>
+	<utilise id="spipr" version="[0.1.0-dev;]" />
+	<categorie>theme</categorie>
+</plugin>
