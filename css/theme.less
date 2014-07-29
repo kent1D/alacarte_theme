@@ -129,6 +129,7 @@ a{
 .hero-unit{
   border:2px solid @green;
   padding:.5em;
+  margin-bottom:1em;
   -webkit-border-radius:0;
   -moz-border-radius:0;
   border-radius:0;
@@ -147,6 +148,32 @@ a{
   small{
     display:block;
     line-height:1em;
+  }
+}
+
+.filters{
+  padding-bottom:.8em;
+  ul{
+    list-style-type:none;
+    margin:0;
+    li{
+      font-weight:bold;
+      display:inline-block;
+      padding:0 .5em;
+      border-right:2px solid @blueDark;
+      a{
+        color:@blueDark;
+      }
+      strong.on{
+        border-bottom:3px solid @green;
+      }
+    }
+    li:first-child,li:last-child{
+      border:none;
+    }
+    li:first-child{
+      padding-left:0;
+    }
   }
 }
 .headline_media{
