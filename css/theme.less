@@ -11,6 +11,10 @@ h1, .h1, .h1-like, h2, .h2, .h2-like, h3, .h3, .h3-like, h4, .h4, .h4-like, h5, 
   color:@blueDark;
 }
 
+h2, .h2, .h2-like{
+  font-size:2.5em;
+  margin-bottom:.5em;
+}
 h3, .h3, .h3-like{
   font-size:2em;
   margin-bottom:.2em;
@@ -19,6 +23,7 @@ h3, .h3, .h3-like{
 header.cartouche h1{
   font-size:5em;
   margin-bottom:.2em;
+  line-height:1em;
 }
 a{
   &:hover,&:active,&:focus{
@@ -86,9 +91,6 @@ table.spip{
   font-size:1em;
   line-height:1em;
 }
-.page{
-  margin-top:25px;
-}
 
 .media, .media-body{
   overflow:visible;
@@ -135,7 +137,7 @@ table.spip{
     }
   }
 }
-#nav_top{
+#nav_top,#nav_topsub{
   margin-top:50px;
   .navbar-inner{
     background:none;
@@ -161,6 +163,41 @@ table.spip{
          box-shadow:none;
          border-bottom:5px solid @green;
          background:none;
+      }
+    }
+  }
+}
+
+#nav_topsub{
+  margin-top:10px;
+  .navbar-inner{
+    font-weight:normal;
+    padding:0;
+    font-size:1em;
+    text-align:right;
+    ul{
+      float:right;
+      li{
+        display:inline-block;
+        float:none;
+        font-size:1.1em;
+        padding:0;
+        a{
+          border-right: 1px solid @blueDark;
+          padding:0;
+          padding:0 9px;
+        }
+      }
+      li:last-child{
+        a{
+          border-right:none;
+        }
+      }
+      li.active{
+        a{
+          font-weight:normal;
+          margin-right:5px;
+        }
       }
     }
   }
@@ -280,6 +317,7 @@ table.spip{
     margin-bottom:20px;
   }
   .media{
+    cursor:pointer;
     position:relative;
     .prix{
       float:right;
@@ -371,6 +409,9 @@ table.spip{
   position:fixed;
   z-index:100;
    bottom:-150px;
+   h2, .h2, .h2-like{
+    font-size:1.5em;
+  }
   .timeline_video{
     .head_timeline{
       background-color:@green;
@@ -553,10 +594,91 @@ table.spip{
   }
 }
 
+.page_contact .main{
+  margin-top:2.66em;
+}
+.formulaire_spip{
+  padding:0;
+  border:1px solid @green;
+  padding:1em;
+  margin:0 -1em 3em -1em;
+  label{
+    font-weight:bold;
+    font-size:2em;
+    font-variant:small-caps;
+  }
+  h2{
+    font-size:2.5em;
+  }
+  input.text,textarea{
+    background:@blueDark;
+    color:@white;
+    width:100%;
+    padding:1em .5em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    margin-bottom:6px;
+  }
+  .editer{
+    padding-right:.5em;
+    padding-left:.5em;
+    margin-right:-.5em;
+    margin-left:-.5em;
+  }
+  .boutons{
+    background:none;
+    border:none;
+    button{
+      border:none;
+      background:transparent;
+    }
+  }
+}
 
+.formulaire_contact{
+  margin:0 0 3em -1em;
+  label{
+    strong{
+      display:none;
+    }
+  }
+  .boutons{
+    padding:0 1em 1em 1em;
+  }
+}
+
+.formulaire_abomailman{
+  background-color:@green;
+  margin:0 0 3em 0;
+}
+
+.social_contact{
+  .fb{
+    float:left;
+    max-width:48%;
+  }
+  .twitter{
+    float:right;
+    max-width:48%;
+  }
+}
 .ui-effects-transfer {
   border: 3px dotted @blueDark;
   z-index:2500;
   background:@blueDark;
-  background:rgba(8,23,61,.6);
+  background-color:rgba(red(@blueDark), green(@blueDark), blue(@blueDark), .6);
+}
+
+.ui-state-highlight{
+  border: 3px dotted @blueDark;
+  background:@blueDark;
+  background-color:rgba(red(@blueDark), green(@blueDark), blue(@blueDark), .9);
+  background-image:none;
+}
+.spip-admin-float{
+  left:10%;
+  a:hover{
+    background-color:#666;
+  }
 }
