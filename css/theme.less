@@ -313,12 +313,38 @@ table.spip{
   }
 }
 .liste_medias{
-  .span4{
+  > .span4{
     margin-bottom:20px;
   }
   .media{
     cursor:pointer;
     position:relative;
+    .incitate{
+      display:none;
+      position:absolute;
+      color:@green;
+      width:100%;
+      text-align:center;
+      span{
+        border:2px solid @green;
+        padding:.8em 1.5em;
+        display:inline-block;
+      }
+      
+    }
+    .incitate_click{
+      span{
+         background:@white;
+         border-bottom:0;
+         a{
+           display:block;
+         }
+      }
+      bottom:0;
+    }
+    .incitate_drag{
+      top:20px;
+    }
     .prix{
       float:right;
       vertical-align:top;
@@ -357,9 +383,13 @@ table.spip{
     display:block;
     clear:both;
   }
-  .media_is_visible{
-    padding:.5em;
-    border:3px dashed @blueDark;
+  .media:hover{
+    .badge_thumbnail{
+      display:none;
+    }
+    .incitate{
+      display:block;
+    }
   }
 }
 
@@ -436,12 +466,19 @@ table.spip{
         background-color:@green;
         overflow:hidden;
         .timeline_next{
-          width:20%;
-          float:right;
+          position:absolute;
+          top:0;
+          right:0;
+          padding:.5em;
+          background-color:@green;
+          a{
+            display:block;
+          };
         }
         .timeline_container{
           padding:0 1em;
           .timeline_list{
+            position:relative;
             margin:1em 0 .5em 0;
             padding-bottom:.5em;
             overflow-x: scroll;
@@ -546,50 +583,79 @@ table.spip{
   bottom:0;
 }
 
-.media_visible{
-  background:@blueDark;
-  color:@white;
-  padding:2%;
-  overflow:auto;
-  margin-bottom:2em;
-  h3{
-    color:@white;
+#media_visible{
+  margin-top:-130px;
+  .media_visible_nav{
+    float:none;
     text-align:center;
-    .prix{
-      color:@green;
-      font-size:.6em;
-      font-weight:normal;
-      .price{
-        font-size:1.4em;
-        font-weight:bold;
+    .prev_preview,.next_preview,.close_preview{
+      display:inline-block;
+      background-color:@blueDark;
+      border:1px solid @green;
+      padding:.8em 1.5em;
+      margin-bottom:-1px;
+    }
+    .close_preview{
+      border-bottom:1px solid @blueDark;
+      border-top:1px solid @green;
+    }
+    .prev_preview{
+      border-right:none;
+    }
+    .next_preview{
+      border-left:none;
+    }
+  }
+  .borderbottom{
+    border-bottom:1px solid @green;
+  }
+  .media_visible{
+    background:@blueDark;
+    color:@white;
+    padding:2%;
+    overflow:auto;
+    margin-bottom:2em;
+    border:1px solid @green;
+    border-top:none;
+    h3{
+      color:@white;
+      text-align:center;
+      .prix{
+        color:@green;
+        font-size:.6em;
+        font-weight:normal;
+        .price{
+          font-size:1.4em;
+          font-weight:bold;
+        }
       }
     }
-  }
-  .media_document{
-    width:48%;
-    float:left;
-  }
-  .media_infos{
-    padding:1em 0;
-    border-style: solid;
-    border-width: 5px 0px 0px;
-    -moz-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
-    -webkit-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
-    -o-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
-    border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 fill repeat;
-    width:48%;
-    float:right;
-    .media_infos_technical{
-      width:50%;
+    .media_document{
+      width:48%;
       float:left;
     }
-    .media_add_to_timeline{
-      width:50%;
+    .media_infos{
+      padding:1em 0;
+      border-style: solid;
+      border-width: 5px 0px 0px;
+      -moz-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+      -webkit-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+      -o-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+      border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 fill repeat;
+      width:48%;
       float:right;
-      text-align:right;
-    }
-    .media_texte_info{
-      clear:both;
+      .media_infos_technical{
+        width:50%;
+        float:left;
+      }
+      .media_add_to_timeline{
+        width:50%;
+        float:right;
+        text-align:right;
+      }
+      .media_texte_info{
+        clear:both;
+      }
     }
   }
 }
@@ -670,6 +736,9 @@ table.spip{
   background-color:rgba(red(@blueDark), green(@blueDark), blue(@blueDark), .6);
 }
 
+.ui-sortable-helper{
+  cursor:pointer;
+}
 .ui-state-highlight{
   border: 3px dotted @blueDark;
   background:@blueDark;
