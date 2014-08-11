@@ -1,4 +1,5 @@
 @import "css/variables.less";
+@import "css/mixins.less";
 @import "css/spip.variables.less";
 @import "css/layoutgala/27";
 
@@ -9,6 +10,7 @@
 }
 h1, .h1, .h1-like, h2, .h2, .h2-like, h3, .h3, .h3-like, h4, .h4, .h4-like, h5, .h5, .h5-like, h6, .h6, .h6-like{
   color:@blueDark;
+  text-transform:uppercase;
 }
 
 h2, .h2, .h2-like{
@@ -20,7 +22,7 @@ h3, .h3, .h3-like{
   margin-bottom:.2em;
 }
 
-header.cartouche h1{
+header.cartouche h1,.rubrique_blog h1{
   font-size:5em;
   margin-bottom:.2em;
   line-height:1em;
@@ -36,19 +38,38 @@ a{
   font-size:2.5em;
   font-weight:200;
   line-height:1em;
-  font-variant:smallcaps;
+  text-transform:uppercase;
   font-style:italic;
   p{
     margin-bottom:.8em;
   }
 }
 
+.spip_documents_center{
+  margin-right:-2%;
+  margin-left:-2%;
+  img{
+    width:104%;
+    max-width:104%;
+  }
+}
+
+.spip_documents_right{
+  margin-right:-2%;
+  max-width:55%;
+}
+
+.spip_documents_left{
+  margin-left:-2%;
+  max-width:55%;
+}
 table.spip{
+  margin-bottom:.3em;
   tbody{
     tr,tr:nth-child(odd){
       td,th{
         border:1px solid @green;
-        vertical-align:inherit;
+        vertical-align:top;
         padding:1em;
         p:last-child{
           margin-bottom:0;
@@ -67,12 +88,23 @@ table.spip{
     tr:hover > th,tr:hover > td{
       background:transparent;
     }
-    tr:hover{
+    tr:hover,{
       td:first-child{
         background:@green;
         color:@white;
         h3{
           color:@blueDark;
+        }
+      }
+    }
+    tr:nth-child(odd){
+      &:hover{
+        td:first-child{
+          background:@green;
+          color:@white;
+          h3{
+            color:@blueDark;
+          }
         }
       }
     }
@@ -84,20 +116,32 @@ table.spip{
     }
   }
 }
+
+table.spip + h3{
+  margin-top:.8em;
+}
+
+table.spip h3 + p{
+  font-size:1.5em;
+}
 .label{
   color:@green;
   background:none;
   padding:0 5px 0 0;
   font-size:1em;
   line-height:1em;
+  text-transform:uppercase;
 }
 
 .media, .media-body{
   overflow:visible;
 }
 .header{
+  width:100%;
+  background:@white;
   #logo_site_spip{
     margin-top:40px;
+    margin-left:.5em;
     .spip_logos{
       margin:0;
     }
@@ -158,9 +202,7 @@ table.spip{
     }
     li.active{
       a{
-        -webkit-box-shadow:none;
-        -moz-box-shadow:none;
-         box-shadow:none;
+         .box-shadow(none);
          border-bottom:5px solid @green;
          background:none;
       }
@@ -170,6 +212,7 @@ table.spip{
 
 #nav_topsub{
   margin-top:10px;
+  margin-right:-20%;
   .navbar-inner{
     font-weight:normal;
     padding:0;
@@ -210,13 +253,9 @@ table.spip{
 .navbar-inverse .navbar-inner{
     background-color:@blueDark;
     background-image:none;
-    border:0;
-    -webkit-box-shadow:0;
-    -moz-box-shadow:0;
-    box-shadow:0;
-    -webkit-border-radius:0;
-    -moz-border-radius:0;
-    border-radius:0;
+    border:none;
+    .box-shadow(0);
+    .border-radius(0)
   }
   
   .navbar-inverse .brand, .navbar-inverse .nav > li{
@@ -233,9 +272,7 @@ table.spip{
   background:@green url(img/cart.png) no-repeat right 1em center;
   height:120px;
   color:@white;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  .box-sizing(border-box);
   padding: 2em 1em 1em 1em;
   line-height: 1em;
   p{
@@ -249,23 +286,20 @@ table.spip{
 }
 .hero-unit{
   border:2px solid @green;
-  padding:.5em;
+  padding:.3em;
   margin-bottom:1em;
-  -webkit-border-radius:0;
-  -moz-border-radius:0;
-  border-radius:0;
   background:none;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  .border-radius(0);
+  .box-sizing(border-box);
   font-style:italic;
   font-size:2.3em;
+  height:inherit;
+  overflow:hidden;
   color:@green;
 }
 
 .hero-unit.span2{
   line-height:1.1em;
-  padding:.1em;
   small{
     display:block;
     line-height:1em;
@@ -283,6 +317,7 @@ table.spip{
       padding:0 .5em;
       border-right:2px solid @blueDark;
       a{
+        text-transform:uppercase;
         color:@blueDark;
       }
       strong.on{
@@ -307,6 +342,7 @@ table.spip{
     width: 100%;
     top: 50%;
     margin-top:-.5em;
+    font-weight:bold;
     a{
       color:@white;
     }
@@ -320,14 +356,16 @@ table.spip{
     cursor:pointer;
     position:relative;
     .incitate{
+      font-weight:bold;
+      font-size:1.2em;
       display:none;
       position:absolute;
       color:@green;
       width:100%;
       text-align:center;
+      .box-sizing(border-box);
       span{
-        border:2px solid @green;
-        padding:.8em 1.5em;
+        padding:1.1em 15%;
         display:inline-block;
       }
       
@@ -335,7 +373,9 @@ table.spip{
     .incitate_click{
       span{
          background:@white;
+         border:2px solid @green;
          border-bottom:0;
+         padding:1em 2em 1.3em 2em;
          a{
            display:block;
          }
@@ -343,7 +383,11 @@ table.spip{
       bottom:0;
     }
     .incitate_drag{
+      border:2px solid @green;
+      width:88%;
+      margin:0 6%;
       top:20px;
+      border:2px solid @green;
     }
     .prix{
       float:right;
@@ -351,7 +395,7 @@ table.spip{
       .price{
         font-weight:bold;
         font-size:1.7em;
-        line-height:1.5em;
+        line-height:1em;
       }
     }
     .badge_thumbnail{
@@ -384,7 +428,7 @@ table.spip{
     clear:both;
   }
   .media:hover{
-    .badge_thumbnail{
+    .badge_thumbnail,.h3-like{
       display:none;
     }
     .incitate{
@@ -392,20 +436,25 @@ table.spip{
     }
   }
 }
-
+.media_is_visible{
+  .headline_media{
+    .h3-like{
+      display:none;
+    }
+  }
+}
 .footer{
   margin-top:1em;
   background-color:@blueDark;
-  padding-bottom:120px;
   border:none;
-  color:#fff;
+  color:@white;
   font-size:1.4em;
   line-height:1.6em;
   strong{
     color:@green;
   }
   .social-links{
-    color:#fff;
+    color:@white;
     font-size:.8em;
     line-height:1em;
     margin-top:1.5em;
@@ -419,6 +468,105 @@ table.spip{
   }
 }
 
+.page_sommaire .footer{
+  padding-bottom:120px;
+}
+
+.rubrique_blog{
+  .background_archive{
+    width:50%;
+    position:fixed;
+    height:100%;
+    right:0;
+    top:0;
+    z-index:-1;
+    background:@green;
+  }
+  h1{
+    text-align:center;
+  }
+  .navbar-inverse{
+    margin-bottom:0;
+  }
+  .blog_archive,.blog_current{
+    padding:3em 2em;
+    .box-sizing(border-box);
+    .chapo{
+      text-transform:uppercase;
+      text-align:center;
+    }
+    .publication{
+      text-transform:uppercase;
+    }
+    .read_more{
+      text-align:right;
+      text-transform:uppercase;
+      a,a:hover{
+        color:@blueDark;
+      }
+      .icon-chevron-right{
+        vertical-align:baseline;
+      }
+    }
+    .liste-items{
+      .publication{
+        display:block;
+      }
+      .item{
+        border:3px solid @green;
+        margin-bottom:2em;
+        padding:2em;
+        .logo{
+          margin:0 -1em 1.2em -1em;
+          .spip_logos{
+            float:none;
+            width:100%;
+          }
+        }
+      }
+    }
+  }
+  .blog_archive{
+    margin-left:0;
+    background:@green;
+    a{
+      color:@white;
+    }
+    .chapo{
+      color:@white;
+    }
+    .liste-items{
+      .item{
+        border:3px solid @white;
+      }
+    }
+  }
+  .footer{
+    margin-top:0;
+  }
+}
+.article_blog{
+  h1{
+    color:@green;
+  }
+  .surtitre{
+    a,a:hover{color:@blueDark;}
+    .icon-chevron-left{
+      vertical-align:baseline;
+    }
+  }
+  .cartouche h1+.publication{
+    margin-top:1em;
+  }
+  .logo{
+    margin:0 -1em 3em -1em;
+    .spip_logos{
+      float:none;
+      width:100%;
+      margin:0;
+    }
+  }
+}
 .icon-twitter{
   background-image:url(img/twitter_share_us.png);
   background-position:0 0;
@@ -438,7 +586,7 @@ table.spip{
   width:100%;
   position:fixed;
   z-index:100;
-   bottom:-150px;
+  bottom:0;
    h2, .h2, .h2-like{
     font-size:1.5em;
   }
@@ -448,7 +596,8 @@ table.spip{
       float:none;
       border:none;
       margin:0 auto;
-      border-radius: 8px 8px 0 0;
+      font-size:.9em;
+      .border-top-radius(10px);
       padding:1em 1em 0 1em;
       text-align:center;
       .h2-like{
@@ -462,6 +611,7 @@ table.spip{
       }
     }
     .timeline_content{
+      height:4em;
       .timeline_line{
         background-color:@green;
         overflow:hidden;
@@ -469,7 +619,7 @@ table.spip{
           position:absolute;
           top:0;
           right:0;
-          padding:.5em;
+          padding:1em .5em 0em;
           background-color:@green;
           a{
             display:block;
@@ -477,6 +627,101 @@ table.spip{
         }
         .timeline_container{
           padding:0 1em;
+          .time_line_intro{
+            float:left;
+            width:25%;
+            padding:2em 3% 2em 2%;
+            .box-sizing(border-box);
+            h2{
+              font-size:3em;
+            }
+            a{
+              color:@blueDark;
+              text-decoration:underline;
+              padding-bottom:.2em;
+            }
+          }
+          .formulaire_spip{
+             width:75%;
+             .box-sizing(border-box);
+             float:left;
+             clear:none;
+             padding:2em 0 0 0;
+             margin:0;
+             position:relative;
+             .date,.venue,.boutons{
+               float:left;
+             }
+             .date,.venue{
+               width:50%;
+               .box-sizing(border-box);
+               h3{
+                 color:@white;
+               }
+             }
+             .date{
+               width:30%;
+             }
+             .boutons{
+               width:20%;
+               .box-sizing(border-box);
+               text-align:center;
+               margin:0;
+               position:absolute;
+               bottom:0;
+               right:0;
+             }
+             .editer{
+               clear:both;
+               overflow:auto;
+               label{
+                 float:left;
+                 width:35%;
+                 font-size:1.5em;
+               }
+               input.text{
+                 float:right;
+                 background:@white;
+                 color:@blueDark;
+                 width:64%;
+               }
+               input[type="radio"]{
+                 margin:0;
+                 vertical-align:baseline;
+               }
+               div.choix{
+                 float:left;
+                 .box-sizing(border-box);
+                 width:33%;
+                 label{
+                   font-size:1em;
+                   float:none;
+                   display:inline;
+                   width:inherit;
+                 }
+               }
+               div.choix:nth-child(4),div.choix:nth-child(7){
+                 clear:both;
+               }
+               div.choix:last-child{
+                 width:100%;
+                 input:disabled{
+                   opacity:.6
+                 }
+               }
+             }
+           }
+          #calendar{
+            float:left;
+            .ui-widget{
+              width:100%;
+              table{
+                td{
+                  line-height:1.7em;
+                }
+              }
+            }
+          }
           .timeline_list{
             position:relative;
             margin:1em 0 .5em 0;
@@ -486,13 +731,11 @@ table.spip{
             white-space:nowrap;
             width:100%;
             .timeline_drag{
-              width:160px;
+              width:140px;
               padding:2px;
-              height:94px;
+              height:84px;
               border:3px dashed @white;
-              -webkit-box-sizing:border-box;
-              -moz-box-sizing:border-box;
-              box-sizing:border-box;
+              .box-sizing(border-box);
               margin-right:.5em;
               display:inline-block;
               vertical-align:middle;
@@ -500,8 +743,10 @@ table.spip{
                 position:relative;
                 min-height:84px;
                 .h3-like{
-                  color:#fff;
+                  color:@white;
                   font-size:.9em;
+                  margin:-.75em 0 0 0;
+                  font-weight:normal;
                 }
                 img{
                   vertical-align:baseline;
@@ -536,31 +781,65 @@ table.spip{
         width:100%;
         background:@blueDark;
         overflow:auto;
+        .info_added_price{
+          position:absolute;
+          bottom:3em;
+          right:8%;
+          text-transform:uppercase;
+          z-index:1;
+          display:none;
+          .content_added_price{
+            font-size:2em;
+            line-height:1.1em;
+            color:@green;
+            background:@blueDark;
+            border:2px solid @green;
+            padding:.4em;
+            max-width:200px;
+            img{
+              margin:.3em 0 .1em
+            }
+            small{
+              font-size:.6em;
+              a{
+                text-decoration:underline;
+              }
+            }
+          }
+          .triangle_added_price{
+            float: right;
+            margin-right: 1.5em;
+            border:2px solid @green;
+            margin-top:-53px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 50px 50px 50px 0;
+            border-color: transparent @blueDark transparent transparent;
+          }
+        }
         .timeline_menu{
           width:50%;
+          float:left;
           overflow:auto;
           .timeline_menu_item{
             width:33%;
             float:left;
             color:@white;
-            padding:.5em;
-            -webkit-box-sizing:border-box;
-            -moz-box-sizing:border-box;
-            box-sizing:border-box;
+            padding:.5em .3em;
+            .box-sizing(border-box);
             .numero{
               display:block;
               float:left;
               font-size:2em;
               background:@white;
-              -webkit-border-radius:1em;
-              -moz-border-radius:1em;
-              border-radius:1em;
+              .border-radius(1em);
               width:1.4em;
               height:1.4em;
               text-align:center;
               line-height:1.4em;
               font-weight:bold;
-              margin-right:.5em;
+              margin-right:.3em;
               color:@blueDark;
             }
             a{
@@ -576,11 +855,111 @@ table.spip{
           }
         }
       }
+      .timeline_show{
+        width:50%;
+        float:left;
+        .show{
+          width:28%;
+          float:left;
+          background:@white;
+          padding: .4em 0;
+          .box-sizing(border-box);
+          margin: .2em 0 0 0;
+          font-size:2em;
+          color:@green;
+          text-align:center;
+          font-weight:bold;
+        }
+        .show_infos{
+          -moz-border-image-slice: 7 7 8 7;
+          -webkit-border-image-slice: 7 7 8 7;
+          border-image-slice: 7 7 8 7;
+          -moz-border-image-width: 0px 7px 0px 7px;
+          -webkit-border-image-width: 0px 7px 0px 7px;
+          border-image-width: 0px 7px 0px 7px;
+          -moz-border-image-outset:0px 3px 0px 4px;
+          -webkit-border-image-outset: 0px 3px 0px 4px;
+          border-image-outset: 0px 3px 0px 4px;
+          -moz-border-image-repeat: stretch repeat;
+          -webkit-border-image-repeat: stretch repeat;
+          border-image-repeat: stretch repeat;
+          -moz-border-image-source: url(img/border_ticket.png);
+          -webkit-border-image-source: url(img/border_ticket.png);
+          -o-border-image-source: url(img/border_ticket.png);
+          border-image-source: url(img/border_ticket.png);
+          width:57%;
+          float:left;
+          background:@white;
+          margin:.4em 0 0 0;
+          height:48px;
+          color:@blueDark;
+        }
+        .show_duration,.show_costs{
+          float:left;
+          width:50%;
+          .box-sizing(border-box);
+          height:3em;
+          padding-left:.2em;
+          font-weight:bold;
+          a,a:focus, a:hover, a:active{
+            color:@blueDark;
+            text-decoration: underline;
+          }
+          .show_text,.show_duree,.show_prix{
+            width:55%;
+            float:left;
+            .box-sizing(border-box);
+          }
+          .show_text{
+            width:45%;
+            padding-top:.3em;
+            line-height:1em;
+            small{
+              font-size:80%;
+            }
+          }
+          .show_duree,.show_prix{
+            font-size:2.5em;
+            padding:.5em;
+            color:@blueDark;
+            padding: .25em .25em 0 0;
+            text-align: right;
+            white-space:nowrap;
+          }
+        }
+        .go_to_buy{
+          color:@green;
+          width:75%;
+          float:right;
+          overflow:hidden;
+          white-space:nowrap;
+          height:1em;
+          padding:.1em 0 0 0;
+          font-size:3em;
+          max-width:8em;
+          font-weight:bold;
+          line-height:1em;
+        }
+        .show_buy{
+          float:right;
+          width:13%;
+          padding:0.5em .5em 0 0;
+          .box-sizing(border-box);
+        }
+      }
     }
+  }
+  .formulaire_spip{
+    border:none;
+    padding:0em;
+    margin:0;
+    background:none;
   }
 }
 #timeline.active{
-  bottom:0;
+  .timeline_content{
+    height:auto;
+  }
 }
 
 #media_visible{
@@ -614,18 +993,21 @@ table.spip{
     color:@white;
     padding:2%;
     overflow:auto;
-    margin-bottom:2em;
+    margin:0 -3% 2em -3%;
     border:1px solid @green;
     border-top:none;
+    width:106%;
+    .box-sizing(border-box);
     h3{
       color:@white;
       text-align:center;
       .prix{
+        text-transform:none;
         color:@green;
-        font-size:.6em;
+        font-size:.5em;
         font-weight:normal;
         .price{
-          font-size:1.4em;
+          font-size:1.6em;
           font-weight:bold;
         }
       }
@@ -636,17 +1018,28 @@ table.spip{
     }
     .media_infos{
       padding:1em 0;
+      width:48%;
+      float:right;
       border-style: solid;
       border-width: 5px 0px 0px;
       -moz-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
       -webkit-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
       -o-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
       border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 fill repeat;
-      width:48%;
-      float:right;
+      .media_read_pricing,.media_more_in{
+        border-style: solid;
+        border-width: 5px 0px 0px;
+        -moz-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+        -webkit-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+        -o-border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 repeat;
+        border-image: url(img/a_la_carte_border_dotted.png) 5 4 0 0 fill repeat;
+        padding:.5em 0;
+        text-transform:uppercase;
+      }
       .media_infos_technical{
         width:50%;
         float:left;
+        text-transform:uppercase;
       }
       .media_add_to_timeline{
         width:50%;
@@ -656,6 +1049,12 @@ table.spip{
       .media_texte_info{
         clear:both;
       }
+      .media_read_pricing{
+        text-align:right;
+        a{
+          color:@white;
+        }
+      }
     }
   }
 }
@@ -663,6 +1062,7 @@ table.spip{
 .page_contact .main{
   margin-top:2.66em;
 }
+
 .formulaire_spip{
   padding:0;
   border:1px solid @green;
@@ -671,7 +1071,14 @@ table.spip{
   label{
     font-weight:bold;
     font-size:2em;
-    font-variant:small-caps;
+    text-transform:uppercase;
+    line-height:1.3em;
+  }
+  .choix{
+    label{
+      text-transform:none;
+      font-size:1.3em;
+    }
   }
   h2{
     font-size:2.5em;
@@ -681,9 +1088,9 @@ table.spip{
     color:@white;
     width:100%;
     padding:1em .5em;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box;
+    .box-sizing(border-box);
+    .border-radius(0);
+    border:none;
     margin-bottom:6px;
   }
   .editer{
@@ -745,9 +1152,306 @@ table.spip{
   background-color:rgba(red(@blueDark), green(@blueDark), blue(@blueDark), .9);
   background-image:none;
 }
+
+.ui-datepicker-inline{
+  border:none;
+  background:none;
+  color:@white;
+  .ui-datepicker-header{
+    background:none;
+    border:none;
+  }
+  .ui-state-default{
+    background:none;
+    border:none;
+    color:@white;
+  }
+  .ui-datepicker-buttonpane{
+    display:none;
+  }
+  .ui-datepicker-prev .ui-icon{
+    background:url('img/button_calendar_prev.png');
+  }
+  .ui-datepicker-prev .ui-icon:hover{
+    background:none;
+  }
+}
+
+.ticket{
+  width:75%;
+  .box-sizing(border-box);
+   float:left;
+   clear:none;
+   padding:2em 0;
+   .ticket_title{
+     height:300px;
+     max-width:15%;
+     float:left;
+     background:@white;
+     padding:0 1.5em;
+     img{
+       margin:70px 0;
+     }
+   }
+   .ticket_content{
+     background:@white;
+     float:left;
+     height:274px;
+     padding:10px;
+     width:85%;
+     -moz-border-image-slice: 7;
+      -webkit-border-image-slice: 7;
+      border-image-slice: 7;
+      -moz-border-image-width: 0px 0x 0px 7px;
+      -webkit-border-image-width: 0px 0 0px 7px;
+      border-image-width: 0px 0 0px 7px;
+      -moz-border-image-outset:0px 3px 0px 4px;
+      -webkit-border-image-outset: 0px 3px 0px 4px;
+      border-image-outset: 0px 3px 0px 4px;
+      -moz-border-image-repeat: stretch repeat;
+      -webkit-border-image-repeat: stretch repeat;
+      border-image-repeat: stretch repeat;
+      -moz-border-image-source: url(img/alacarte_your_show_border.png);
+      -webkit-border-image-source: url(img/alacarte_your_show_border.png);
+      -o-border-image-source: url(img/alacarte_your_show_border.png);
+      border-image-source: url(img/alacarte_your_show_border.png);
+      .title_value{
+        font-size:1.3em;
+        font-weight:bold;
+        float:left;
+        line-height:.9;
+        small{
+          font-size:60%;
+          font-weight:normal;
+        }
+        a{
+          display:none;
+          color:@blueDark;
+          text-decoration:underline;
+        }
+      }
+      .show_date:hover{
+        .title_value{
+          a{
+            display:block;
+          }
+        }
+      }
+      .value{
+        float:left;
+        font-weight:bold;
+        font-size:2.8em;
+        margin-left:10px;
+        line-height:.8em; 
+      }
+      .show_infos{
+        overflow:hidden;
+        .show_info{
+          float:left;
+          margin-right:20px;
+        }
+        .show_info:last-child{
+          margin-right:0;
+        }
+      }
+      .place{
+        clear:both;
+        margin-top:10px;
+        overflow:hidden;
+        .show_info{
+          float:left;
+          margin-right:20px;
+        }
+        .show_info:last-child{
+          margin-right:0;
+        }
+      }
+      .price_infos{
+        font-weight:normal;
+      }
+      .ticket_chapters{
+        margin-top:20px;
+        padding-top:20px;
+        border-top:1px solid @blueDark;
+        clear:both;
+        font-weight:bold;
+        .price_infos{
+          margin-top:-35px;
+          float:right;
+          background:@white;
+          margin-right:10px;
+          padding:0 10px;
+        }
+        .title_value{
+          width:20%;
+        }
+        ul{
+          margin-left:0;
+          float:left;
+          width:40%;
+          font-size:1.3em;
+          li{
+            margin-left:10px;
+          }
+        }
+      }
+   }
+   .ticket_chapters{
+     ul{
+       list-style-type:none;
+     }
+   }
+}
+
+.page_order{
+  .ticket_container{
+    background:@green;
+    overflow:hidden;
+    margin:1em -4em;
+    padding:0 2em;
+    .ticket{
+      width:auto;
+      .ticket_content{
+        .value{
+          font-size:2.4em;
+        }
+      }
+    }
+  }
+  
+}
+
+#calendar{
+  .calendar-container{
+    height:auto;
+  }
+  table{
+    font-size:1em;
+    thead{
+      display:none;
+    }
+    td a{
+      background:none;
+      border:none;
+      color:@white;
+      text-align:center;
+      font-size:1.4em;
+    }
+  } 
+  .ui-widget{
+    font-family:inherit;
+    .ui-datepicker-title{
+      margin:0 1.8em;
+      border:2px solid @white;
+      .box-sizing(border-box);
+      line-height:inherit;
+      height:1.8em;
+      input, select, textarea, button{
+        height:auto;
+        margin:0;
+        line-height:inherit;
+        font-family:inherit;
+        background:none;
+        border:none;
+        color:@white;
+      }
+    }
+    .ui-datepicker-header{
+      padding:0;
+      .ui-datepicker-prev,.ui-datepicker-next{
+        top:0;
+        border:2px solid @white;
+        .border-radius(0);
+        .box-sizing(border-box);
+      }
+      .ui-icon{
+        height:18px;
+      }
+      .ui-datepicker-prev{
+        border-right:0;
+      }
+      .ui-datepicker-next{
+        border-left:0;
+      }
+      .ui-datepicker-prev .ui-icon{
+        background-image:url('img/button_calendar_prev.png');
+        background-repeat:no-repeat;
+      }
+      .ui-datepicker-next .ui-icon{
+        background-image:url('img/button_calendar_next.png');
+        background-repeat:no-repeat;
+      }
+      .ui-datepicker-next.ui-state-hover,.ui-datepicker-prev.ui-state-hover{
+        background:none;
+      }
+    }
+    .ui-state-active{
+      background:@white;
+      color:@green;
+    }
+  }
+}
 .spip-admin-float{
   left:10%;
   a:hover{
     background-color:#666;
+  }
+}
+
+.main .thumbnails{
+  margin:0;
+}
+.thumbnails{
+  li{
+    .thumbnail{
+      padding:0;
+      border:1px solid @green;
+      .border-radius(0);
+      img{
+        width:100%;
+        max-width:100%;
+      }
+      h3,p{
+        padding-right:20px;
+        padding-left:20px;
+      }
+      h3{
+        margin-top:.5em;
+        color:@green;
+      }
+    }
+  }
+  li:nth-child(3n+1){
+    clear:both;
+  }
+}
+@media (min-width: 1200px){
+  .rubrique_blog{
+    .content{
+      .span6{
+        width:585px;
+      }
+    }
+  }
+}
+@media (max-width: 1199px){
+  .hero-unit{
+    font-size:2em;
+  }
+  #timeline{
+    .timeline_video{
+      .timeline_content{
+        .timeline_bottom{
+          .timeline_menu{
+            .timeline_menu_item{
+              font-size:.9em;
+              .numero{
+                margin-right:.2em;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
