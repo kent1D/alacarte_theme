@@ -140,7 +140,7 @@ table.spip h3 + p{
   width:100%;
   background:@white;
   #logo_site_spip{
-    margin-top:40px;
+    margin-top:20px;
     margin-left:.5em;
     .spip_logos{
       margin:0;
@@ -150,17 +150,7 @@ table.spip h3 + p{
 .nav > li > a:hover, .nav > li > a:focus{
   background:none;
 }
-.navbar-inverse{
-  .nav{
-    .active > a,
-    .active > a:hover,
-    .active > a:focus{
-      color:@green;
-      font-weight:normal;
-      background:none;
-    }
-  }
-} 
+
 #nav{
   .navbar-inner{
     position:relative;
@@ -198,6 +188,11 @@ table.spip h3 + p{
       a{
         color:@blueDark;
         padding:0 0 1px 0;
+        &:hover{
+          .box-shadow(none);
+           border-bottom:5px solid @green;
+           background:none;
+        }
       }
     }
     li.active{
@@ -250,24 +245,36 @@ table.spip h3 + p{
   margin-bottom:25px;
 }
 
-.navbar-inverse .navbar-inner{
+.navbar-inverse{
+  min-height:43px;
+  .navbar-inner{
     background-color:@blueDark;
     background-image:none;
     border:none;
     .box-shadow(0);
     .border-radius(0)
   }
-  
-  .navbar-inverse .brand, .navbar-inverse .nav > li{
+  .nav{
+    li > a:hover,
+    .active > a,
+    .active > a:hover,
+    .active > a:focus{
+      color:@green;
+      font-weight:normal;
+      background:none;
+    }
+  }
+  .brand, .nav > li{
     padding:9px 0 9px;
   }
   
-  .navbar-inverse .brand, .navbar-inverse .nav > li > a{
+  .brand, .nav > li > a{
     color:@white;
     border-right: 1px solid @white;
     padding:0;
     padding:0 15px;
   }
+}
 .itembox{
   background:@green url(img/cart.png) no-repeat right 1em center;
   height:120px;
@@ -316,11 +323,11 @@ table.spip h3 + p{
       display:inline-block;
       padding:0 .5em;
       border-right:2px solid @blueDark;
-      a{
+      a,strong.on{
         text-transform:uppercase;
         color:@blueDark;
       }
-      strong.on{
+      a:hover,strong.on{
         border-bottom:3px solid @green;
       }
     }
@@ -332,7 +339,11 @@ table.spip h3 + p{
     }
   }
 }
+
 .headline_media{
+  *{
+    cursor:pointer;
+  }
   position:relative;
   .h3-like{
     font-weight:normal;
@@ -348,6 +359,14 @@ table.spip h3 + p{
     }
   }
 }
+
+.ui-sortable-helper{
+  cursor:move;
+  *{
+    cursor:move;
+  }
+}
+
 .liste_medias{
   > .span4{
     margin-bottom:20px;
@@ -559,7 +578,7 @@ table.spip h3 + p{
     margin-top:1em;
   }
   .logo{
-    margin:0 -1em 3em -1em;
+    margin:0 -3em 3em -3em;
     .spip_logos{
       float:none;
       width:100%;
@@ -611,7 +630,6 @@ table.spip h3 + p{
       }
     }
     .timeline_content{
-      height:4em;
       .timeline_line{
         background-color:@green;
         overflow:hidden;
@@ -619,8 +637,10 @@ table.spip h3 + p{
           position:absolute;
           top:0;
           right:0;
-          padding:1em .5em 0em;
+          padding:.9em .5em 0 0;
           background-color:@green;
+          width:135px;
+          height:85px;
           a{
             display:block;
           };
@@ -649,6 +669,11 @@ table.spip h3 + p{
              padding:2em 0 0 0;
              margin:0;
              position:relative;
+             .error{
+               background:none;
+               border:none;
+               .text-shadow(0);
+             }
              .date,.venue,.boutons{
                float:left;
              }
@@ -663,13 +688,17 @@ table.spip h3 + p{
                width:30%;
              }
              .boutons{
-               width:20%;
                .box-sizing(border-box);
                text-align:center;
                margin:0;
                position:absolute;
                bottom:0;
                right:0;
+               button{
+                 width:135px;
+                 height:85px;
+                 max-width:135px;
+               }
              }
              .editer{
                clear:both;
@@ -677,7 +706,9 @@ table.spip h3 + p{
                label{
                  float:left;
                  width:35%;
-                 font-size:1.5em;
+                 font-size: 1.1em;
+                  line-height: 1.5em;
+                  vertical-align: middle;
                }
                input.text{
                  float:right;
@@ -731,21 +762,24 @@ table.spip h3 + p{
             white-space:nowrap;
             width:100%;
             .timeline_drag{
-              width:140px;
-              padding:2px;
-              height:84px;
-              border:3px dashed @white;
+              background:transparent url('img/border-dotted_timeline.png') 0 0 no-repeat;
+              width:137px;
+              padding:0px;
+              height:80px;
+              border:none;
               .box-sizing(border-box);
               margin-right:.5em;
               display:inline-block;
               vertical-align:middle;
               .headline_media{
                 position:relative;
-                min-height:84px;
+                width:131px;
+                margin:3px;
+                height:74px;
                 .h3-like{
                   color:@white;
                   font-size:.9em;
-                  margin:-.75em 0 0 0;
+                  margin:-.5em 0 0 0;
                   font-weight:normal;
                 }
                 img{
@@ -833,6 +867,7 @@ table.spip h3 + p{
               float:left;
               font-size:2em;
               background:@white;
+              text-indent:.15em;
               .border-radius(1em);
               width:1.4em;
               height:1.4em;
@@ -1042,7 +1077,7 @@ table.spip h3 + p{
         text-transform:uppercase;
       }
       .media_add_to_timeline{
-        width:50%;
+        width:35%;
         float:right;
         text-align:right;
       }
@@ -1065,7 +1100,7 @@ table.spip h3 + p{
 
 .formulaire_spip{
   padding:0;
-  border:1px solid @green;
+  border:2px solid @green;
   padding:1em;
   margin:0 -1em 3em -1em;
   label{
@@ -1103,6 +1138,7 @@ table.spip h3 + p{
     background:none;
     border:none;
     button{
+      max-width:48%;
       border:none;
       background:transparent;
     }
@@ -1124,6 +1160,9 @@ table.spip h3 + p{
 .formulaire_abomailman{
   background-color:@green;
   margin:0 0 3em 0;
+  .boutons{
+    padding:0 1em 1em 1em;
+  }
 }
 
 .social_contact{
@@ -1242,7 +1281,8 @@ table.spip h3 + p{
         font-weight:bold;
         font-size:2.8em;
         margin-left:10px;
-        line-height:.8em; 
+        line-height:.8em;
+        text-transform:uppercase;
       }
       .show_infos{
         overflow:hidden;
