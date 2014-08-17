@@ -1034,6 +1034,7 @@ table.spip h3 + p{
     width:106%;
     .box-sizing(border-box);
     h3{
+      font-size:2.8em;
       color:@white;
       text-align:center;
       .prix{
@@ -1254,57 +1255,53 @@ table.spip h3 + p{
       -webkit-border-image-source: url(img/alacarte_your_show_border.png);
       -o-border-image-source: url(img/alacarte_your_show_border.png);
       border-image-source: url(img/alacarte_your_show_border.png);
-      .title_value{
-        font-size:1.3em;
-        font-weight:bold;
-        float:left;
-        line-height:.9;
-        small{
-          font-size:60%;
-          font-weight:normal;
+      .place,.show_infos{
+        table-layout:fixed;
+        max-width:100%;
+        .toresize{
+          display:block;
         }
-        a{
-          display:none;
-          color:@blueDark;
-          text-decoration:underline;
-        }
-      }
-      .show_date:hover{
         .title_value{
+          font-size:1.3em;
+          font-weight:bold;
+          line-height:.9;
+          small{
+            font-size:60%;
+            font-weight:normal;
+          }
+          a{
+            display:none;
+            color:@blueDark;
+            text-decoration:underline;
+          }
+        }
+        .show_date_label:hover{
           a{
             display:block;
           }
         }
-      }
-      .value{
-        float:left;
-        font-weight:bold;
-        font-size:2.8em;
-        margin-left:10px;
-        line-height:.8em;
-        text-transform:uppercase;
-      }
-      .show_infos{
-        overflow:hidden;
+        .value{
+          font-weight:bold;
+          font-size:2.8em;
+          line-height:.8em;
+          text-transform:uppercase;
+          white-space: nowrap;
+          text-overflow:ellipsis;
+          box-sizing: border-box;
+          overflow:hidden;
+        }
         .show_info{
-          float:left;
-          margin-right:20px;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding-right:10px;
+          vertical-align:top;
         }
         .show_info:last-child{
-          margin-right:0;
+          padding-right:0;
         }
       }
       .place{
-        clear:both;
         margin-top:10px;
-        overflow:hidden;
-        .show_info{
-          float:left;
-          margin-right:20px;
-        }
-        .show_info:last-child{
-          margin-right:0;
-        }
       }
       .price_infos{
         font-weight:normal;
@@ -1324,6 +1321,7 @@ table.spip h3 + p{
         }
         .title_value{
           width:20%;
+          float:left;
         }
         ul{
           margin-left:0;
