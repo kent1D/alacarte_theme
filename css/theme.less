@@ -140,8 +140,7 @@ table.spip h3 + p{
   width:100%;
   background:@white;
   #logo_site_spip{
-    margin-top:20px;
-    margin-left:.5em;
+    margin:20px 0 0 18px;
     .spip_logos{
       margin:0;
     }
@@ -630,8 +629,8 @@ table.spip h3 + p{
       }
     }
     .timeline_content{
+      background:@green;
       .timeline_line{
-        background-color:@green;
         overflow:hidden;
         .preview_video{
           background:@blueDark;
@@ -968,73 +967,78 @@ table.spip h3 + p{
       .timeline_show{
         width:50%;
         float:left;
-        .show{
-          width:28%;
-          float:left;
-          background:@white;
-          padding: .4em 0;
-          .box-sizing(border-box);
-          margin: .2em 0 0 0;
-          font-size:2em;
-          color:@green;
-          text-align:center;
-          font-weight:bold;
-        }
-        .show_infos{
-          -moz-border-image-slice: 7 7 8 7;
-          -webkit-border-image-slice: 7 7 8 7;
-          border-image-slice: 7 7 8 7;
-          -moz-border-image-width: 0px 7px 0px 7px;
-          -webkit-border-image-width: 0px 7px 0px 7px;
-          border-image-width: 0px 7px 0px 7px;
-          -moz-border-image-outset:0px 3px 0px 4px;
-          -webkit-border-image-outset: 0px 3px 0px 4px;
-          border-image-outset: 0px 3px 0px 4px;
-          -moz-border-image-repeat: stretch repeat;
-          -webkit-border-image-repeat: stretch repeat;
-          border-image-repeat: stretch repeat;
-          -moz-border-image-source: url(img/border_ticket.png);
-          -webkit-border-image-source: url(img/border_ticket.png);
-          -o-border-image-source: url(img/border_ticket.png);
-          border-image-source: url(img/border_ticket.png);
-          width:57%;
+        .ticket_mini{
+          overflow:auto;
           float:left;
           background:@white;
           margin:.4em 0 0 0;
-          height:48px;
-          color:@blueDark;
-        }
-        .show_duration,.show_costs{
-          float:left;
-          width:50%;
-          .box-sizing(border-box);
-          height:3em;
-          padding-left:.2em;
-          font-weight:bold;
-          a,a:focus, a:hover, a:active{
-            color:@blueDark;
-            text-decoration: underline;
-          }
-          .show_text,.show_duree,.show_prix{
-            width:55%;
-            float:left;
+          width:86%;
+          display: table;
+          .show{
+            display:table-cell;
+            vertical-align:middle;
+            width:32%;
             .box-sizing(border-box);
+            font-size:2em;
+            color:@green;
+            text-align:center;
+            font-weight:bold;
           }
-          .show_text{
-            width:45%;
-            padding-top:.3em;
-            line-height:1em;
-            small{
-              font-size:80%;
-            }
-          }
-          .show_duree,.show_prix{
-            font-size:2.5em;
-            padding:.5em;
+          .show_infos{
+            display:table-cell;
+            -moz-border-image-slice: 7 7 8 7;
+            -webkit-border-image-slice: 7 7 8 7;
+            border-image-slice: 7 7 8 7;
+            -moz-border-image-width: 0px 7px 0px 7px;
+            -webkit-border-image-width: 0px 7px 0px 7px;
+            border-image-width: 0px 7px 0px 7px;
+            -moz-border-image-outset:0px 3px 0px 4px;
+            -webkit-border-image-outset: 0px 3px 0px 4px;
+            border-image-outset: 0px 3px 0px 4px;
+            -moz-border-image-repeat: stretch repeat;
+            -webkit-border-image-repeat: stretch repeat;
+            border-image-repeat: stretch repeat;
+            -moz-border-image-source: url(img/border_ticket.png);
+            -webkit-border-image-source: url(img/border_ticket.png);
+            -o-border-image-source: url(img/border_ticket.png);
+            border-image-source: url(img/border_ticket.png);
+            border-top:0;
+            border-bottom:0;
+            padding:.3em 0;
+            width:66%;
             color:@blueDark;
-            padding: .25em .25em 0 0;
-            text-align: right;
-            white-space:nowrap;
+          }
+          .show_duration,.show_costs{
+            float:left;
+            width:50%;
+            .box-sizing(border-box);
+            padding-left:.2em;
+            font-weight:bold;
+            a,a:focus, a:hover, a:active{
+              color:@blueDark;
+              text-decoration: underline;
+            }
+            .show_text,.show_duree,.show_prix{
+              width:55%;
+              float:left;
+              .box-sizing(border-box);
+            }
+            .show_text{
+              width:45%;
+              padding-top:.3em;
+              line-height:1em;
+              small{
+                font-size:80%;
+              }
+            }
+            .show_duree,.show_prix{
+              font-size:2.5em;
+              line-height:1em;
+              color:@blueDark;
+              padding: 0 .25em 0 0;
+              text-align: right;
+              white-space:nowrap;
+            }
           }
         }
         .go_to_buy{
@@ -1311,7 +1315,7 @@ table.spip h3 + p{
    .ticket_content{
      background:@white;
      float:left;
-     height:274px;
+     height:280px;
      padding:10px;
      width:85%;
      -moz-border-image-slice: 7;
@@ -1330,6 +1334,8 @@ table.spip h3 + p{
       -webkit-border-image-source: url(img/alacarte_your_show_border.png);
       -o-border-image-source: url(img/alacarte_your_show_border.png);
       border-image-source: url(img/alacarte_your_show_border.png);
+      border-top:0;
+      border-bottom:0;
       .place,.show_infos{
         table-layout:fixed;
         max-width:100%;
