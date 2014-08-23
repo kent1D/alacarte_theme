@@ -33,6 +33,8 @@ a{
   }
 }
 
+#alert{display:none;margin-top:2em;}
+
 .chapo{
   color:@green;
   font-size:2.5em;
@@ -171,7 +173,7 @@ table.spip h3 + p{
   }
 }
 #nav_top,#nav_topsub{
-  margin-top:50px;
+  margin-bottom:0;
   .navbar-inner{
     background:none;
     border:none;
@@ -206,7 +208,8 @@ table.spip h3 + p{
 
 #nav_topsub{
   margin-top:10px;
-  margin-right:-20%;
+  margin-right:-5%;
+  margin-bottom:0;
   .navbar-inner{
     font-weight:normal;
     padding:0;
@@ -500,7 +503,7 @@ table.spip h3 + p{
     z-index:-1;
     background:@green;
   }
-  h1{
+  .wrapper h1{
     text-align:center;
   }
   .navbar-inverse{
@@ -1447,7 +1450,7 @@ table.spip h3 + p{
     margin:1em -4em;
     padding:0 2em;
     .ticket{
-      width:auto;
+      width:100%;
       .ticket_content{
         .value{
           font-size:2.4em;
@@ -1590,5 +1593,22 @@ table.spip h3 + p{
         }
       }
     }
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .page_sommaire{
+    #nav,.wrapper,.footer,#timeline {display: none;}
+    #alert{display:block;}
+  }
+  .row-fluid .itembox,.rubrique_blog .background_archive{
+    display:none;
+  }
+  #nav_topsub{
+    margin-right:auto;
+  }
+  #nav .navbar-inner .navbar-right{
+    position:relative;
   }
 }
