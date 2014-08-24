@@ -22,7 +22,7 @@ h3, .h3, .h3-like{
   margin-bottom:.2em;
 }
 
-header.cartouche h1,.rubrique_blog h1{
+header.cartouche h1,.rubrique_blog .wrapper h1{
   font-size:5em;
   margin-bottom:.2em;
   line-height:1em;
@@ -1194,7 +1194,6 @@ table.spip h3 + p{
   }
   .choix{
     label{
-      text-transform:none;
       font-size:1.3em;
     }
   }
@@ -1563,6 +1562,38 @@ table.spip h3 + p{
   }
   li:nth-child(3n+1){
     clear:both;
+  }
+}
+
+.page_order{
+  .fieldset_contacts,.fieldset_infos_sup{
+    width:47%;
+    
+  }
+  .fieldset_contacts{
+    float:left;
+  }
+  
+  .fieldset_infos_sup{
+    float:right;
+  }
+  span.obligatoire{
+    display:none;
+  }
+  .editer_type_client .choix{
+    float:left;
+    width:50%;
+  }
+  .choix{
+    label{
+      font-size:2em;
+    }
+  }
+  .formulaire_spip h2{
+    line-height:1.3em;
+  }
+  button.submit{
+    width:250px;
   }
 }
 @media (min-width: 1200px){
