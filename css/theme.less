@@ -72,12 +72,30 @@ a{
   }
 }
 
-.error .inner{
-  border:none;
-  background:none;
-  padding:0;
+.error{
+  .inner{
+    border:none;
+    background:none;
+    padding:0;
+    .bd{
+      p:last-child{
+        margin-bottom:0;
+      }
+    }
+  }
 }
 
+.reponse_formulaire{
+  p:last-child{
+    margin:0;
+  }
+}
+
+.formulaire_spip.formulaire_formidable{
+  label{
+    text-transform:inherit;
+  }
+}
 .formulaire_spip p.explication.warning{
   color:#c09853;
 }
@@ -177,9 +195,12 @@ table.spip h3 + p{
   width:100%;
   background:@white;
   #logo_site_spip{
-    margin:20px 0 0 18px;
+    margin:10px 0 0 0;
     .spip_logos{
       margin:0;
+    }
+    img{
+      max-width:197px;
     }
   }
 }
@@ -210,6 +231,7 @@ table.spip h3 + p{
 #nav_top,#nav_topsub{
   margin-bottom:0;
   .navbar-inner{
+    padding-left:0;
     background:none;
     border:none;
     font-weight:bold;
@@ -305,7 +327,7 @@ table.spip h3 + p{
     padding:9px 0 9px;
   }
   
-  .brand, .nav > li > a{
+  .brand, .nav > li > a,.brand, .nav > li > span > a{
     color:@white;
     border-right: 1px solid @white;
     padding:0;
@@ -378,10 +400,8 @@ table.spip h3 + p{
 }
 
 .headline_media{
-  *{
-    cursor:pointer;
-  }
-  position:relative;
+  cursor:move;
+  position:relative; 
   .h3-like{
     font-weight:normal;
     display:block;
@@ -397,6 +417,9 @@ table.spip h3 + p{
   }
 }
 
+.not_draggable .headline_media{
+  cursor:no-drop;
+}
 .ui-sortable-helper{
   cursor:move;
   *{
@@ -407,6 +430,9 @@ table.spip h3 + p{
 .liste_medias{
   > .span4{
     margin-bottom:20px;
+  }
+  .clear{
+    clear:both;
   }
   .media{
     cursor:pointer;
@@ -467,7 +493,7 @@ table.spip h3 + p{
       bottom:20px;
       right:20px;
     }
-    .badge_thumbnail_7{
+    .badge_thumbnail_7,.badge_thumbnail_13{
       bottom:-20px;
       left:20px;
     }
@@ -644,6 +670,16 @@ table.spip h3 + p{
     margin:0;
     border:none;
     padding:0;
+    .markItUp{
+      .markItUpTabs{
+        top:0;
+        padding:0;
+        right:5px;
+      }
+      .markItUpPreview{
+        top:31px;
+      }
+    }
   }
   .warning,.notice{
     .inner{
@@ -687,6 +723,32 @@ table.spip h3 + p{
   .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
     font-family:inherit;
   }
+  .ui-tabs{
+    .ui-tabs-nav{ 
+      li{
+        top:1px;
+      }
+    }
+  }
+  .chosen-container{
+    font-size:inherit;
+  }
+  .chosen-container-multi {
+    .chosen-choices {
+      li.search-choice{
+        line-height:inherit;
+        .search-choice-close{
+          top:50%;
+          margin-top:-6px;
+        }
+      }
+    }
+    li.search-field{
+      input[type="text"]{
+        font-family:inherit;
+      }
+    }
+  }
 }
 
 #timeline{
@@ -699,22 +761,20 @@ table.spip h3 + p{
   }
   .timeline_video{
     .head_timeline{
-      background-color:@green;
       float:none;
       border:none;
       margin:0 auto;
       font-size:.9em;
-      .border-top-radius(10px);
-      padding:1em 1em 0 1em;
       text-align:center;
       .h2-like{
+        padding:.5em 1em;
         margin-bottom:0;
+        .border-top-radius(10px);
+        display:inline-block;
+        background-color:@green;
       }
       a{
         color:@blueDark;
-        &:hover{
-          background:none;
-        }
       }
     }
     .timeline_content{
@@ -887,6 +947,7 @@ table.spip h3 + p{
             overflow:hidden;
             margin:1em 0 .5em 0;
             padding-bottom:.5em;
+            padding-left:1em;
             white-space:nowrap;
             .timeline_drag{
               background:transparent url('img/border-dotted_timeline.png') 0 0 no-repeat;
@@ -943,6 +1004,9 @@ table.spip h3 + p{
                 }
               }
             }
+            .timeline_drag.ui-sortable-helper{
+              background:none;
+            }
             .timeline_drag.playing{
               background:none;
               .headline_media{
@@ -982,6 +1046,11 @@ table.spip h3 + p{
                   }
                 }
               }
+          }
+          .timeline_list.preview{
+            .timeline_drag.empty{
+              //visibility:hidden;
+            }
           }
         }
       }
@@ -1049,7 +1118,7 @@ table.spip h3 + p{
               text-align:center;
               line-height:1.4em;
               font-weight:bold;
-              margin-right:.3em;
+              margin:0em .3em .2em .1em;
               color:@blueDark;
             }
             a{
@@ -1308,7 +1377,8 @@ table.spip h3 + p{
     background:@blueDark;
     color:@white;
     width:100%;
-    padding:1em .5em;
+    height:100%;
+    padding:.5em;
     .box-sizing(border-box);
     .border-radius(0);
     border:none;
@@ -1323,7 +1393,7 @@ table.spip h3 + p{
   .boutons{
     background:none;
     border:none;
-    button{
+    button:not(.btn){
       max-width:48%;
       border:none;
       background:transparent;
@@ -1377,7 +1447,7 @@ table.spip h3 + p{
 }
 
 .ui-sortable-helper{
-  cursor:pointer;
+  cursor:move;
 }
 .ui-state-highlight{
   border: 3px dotted @blueDark;
@@ -1525,6 +1595,10 @@ table.spip h3 + p{
           width:40%;
           font-size:1.3em;
           li{
+            white-space:nowrap;
+            overflow:hidden;
+            text-transform:uppercase;
+            text-overflow:ellipsis;
             margin-left:10px;
           }
         }
@@ -1564,12 +1638,31 @@ table.spip h3 + p{
     thead{
       display:none;
     }
-    td a{
+    td a,td span{
       background:none;
       border:none;
       color:@white;
       text-align:center;
       font-size:1.4em;
+    }
+    td.ui-datepicker-unselectable{
+      opacity:1;
+      filter:alpha(opacity=100);
+      position: relative;
+    }
+    td.ui-datepicker-unselectable:before {
+      position: absolute;
+      content: "";
+      left: 2%;
+      top: 50%;
+      right: 0;
+      border-top: 4px solid;
+      border-color: #fff;
+      -webkit-transform:rotate(-45deg);
+      -moz-transform:rotate(-45deg);
+      -ms-transform:rotate(-45deg);
+      -o-transform:rotate(-45deg);
+      transform:rotate(-45deg);
     }
   } 
   .ui-widget{
@@ -1588,6 +1681,9 @@ table.spip h3 + p{
         background:none;
         border:none;
         color:@white;
+      }
+      option{
+        color:@black;
       }
     }
     .ui-datepicker-header{
@@ -1690,6 +1786,10 @@ table.spip h3 + p{
   button.submit{
     width:250px;
   }
+}
+
+#video_preview .media_wrapper.ended.preview .ms_splash{
+  display:none;
 }
 @media (min-width: 1200px){
   .rubrique_blog{
