@@ -188,6 +188,9 @@ table.spip h3 + p{
   text-transform:uppercase;
 }
 
+.publication{
+  text-transform:uppercase;
+}
 .media, .media-body{
   overflow:visible;
 }
@@ -1609,12 +1612,32 @@ table.spip h3 + p{
         .title_value{
           width:20%;
           float:left;
+          .pagination{
+            margin:0;
+            ul.pager{
+              width:100%;
+              float:none;
+              li{
+                margin-left:0;
+                white-space:normal;
+                a{
+                  padding:0;
+                  border:none;
+                  font-size:.8em;
+                }
+              }
+              .disabled{
+                display:none;
+              }
+            }
+          }
         }
         ul{
           margin-left:0;
           float:left;
           width:40%;
           font-size:1.3em;
+          overflow:hidden;
           li{
             white-space:nowrap;
             overflow:hidden;
