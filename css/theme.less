@@ -223,15 +223,15 @@ table.spip h3 + p{
       padding-right:0;
       ul{
         margin:0;
-        li{
-          a{
-            border:none;
-          }
-          .texte_libre{
-            font-weight:inherit;
-            font-size:inherit;
-            padding:0;
-          }
+      }
+      li{
+        a{
+          border:none;
+        }
+        .texte_libre{
+          font-weight:inherit;
+          font-size:inherit;
+          padding:0;
         }
       }
     }
@@ -283,27 +283,27 @@ table.spip h3 + p{
     text-align:right;
     ul{
       float:right;
-      li{
-        display:inline-block;
-        float:none;
-        font-size:1.1em;
+    }
+    li{
+      display:inline-block;
+      float:none;
+      font-size:1.1em;
+      padding:0;
+      a{
+        border-right: 1px solid @blueDark;
         padding:0;
-        a{
-          border-right: 1px solid @blueDark;
-          padding:0;
-          padding:0 9px;
-        }
+        padding:0 9px;
       }
-      li:last-child{
-        a{
-          border-right:none;
-        }
+    }
+    li:last-child{
+      a{
+        border-right:none;
       }
-      li.active{
-        a{
-          font-weight:normal;
-          margin-right:5px;
-        }
+    }
+    li.active{
+      a{
+        font-weight:normal;
+        margin-right:5px;
       }
     }
   }
@@ -386,26 +386,27 @@ table.spip h3 + p{
   ul{
     list-style-type:none;
     margin:0;
-    li{
-      font-weight:bold;
-      display:inline-block;
-      padding:0 .5em;
-      border-right:2px solid @blueDark;
-      a,strong.on{
-        text-transform:uppercase;
-        color:@blueDark;
-      }
-      a:hover,strong.on{
-        border-bottom:3px solid @green;
-      }
+  }
+  li{
+    font-weight:bold;
+    display:inline-block;
+    padding:0 .5em;
+    border-right:2px solid @blueDark;
+    a,strong.on{
+      text-transform:uppercase;
+      color:@blueDark;
     }
-    li:first-child,li:last-child{
-      border:none;
-    }
-    li:first-child{
-      padding-left:0;
+    a:hover,strong.on{
+      border-bottom:3px solid @green;
     }
   }
+  li:first-child,li:last-child{
+    border:none;
+  }
+  li:first-child{
+    padding-left:0;
+  }
+  
 }
 
 .headline_media{
@@ -1622,17 +1623,17 @@ table.spip h3 + p{
             ul.pager{
               width:100%;
               float:none;
-              li{
-                margin-left:0;
-                white-space:normal;
-                a{
-                  padding:0;
-                  border:none;
-                  font-size:.8em;
-                }
-              }
               .disabled{
                 display:none;
+              }
+            }
+            li{
+              margin-left:0;
+              white-space:normal;
+              a{
+                padding:0;
+                border:none;
+                font-size:.8em;
               }
             }
           }
@@ -1643,13 +1644,13 @@ table.spip h3 + p{
           width:40%;
           font-size:1.3em;
           overflow:hidden;
-          li{
-            white-space:nowrap;
-            overflow:hidden;
-            text-transform:uppercase;
-            text-overflow:ellipsis;
-            margin-left:10px;
-          }
+        }
+        li{
+          white-space:nowrap;
+          overflow:hidden;
+          text-transform:uppercase;
+          text-overflow:ellipsis;
+          margin-left:10px;
         }
       }
    }
